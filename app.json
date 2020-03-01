@@ -12,11 +12,11 @@
     "platforms": ["ios", "android"],
     "ios": {
       "bundleIdentifier": "croco.space.coronas.info",
-      "buildNumber": "1.0.0"
+      "buildNumber": "1.0.1"
     },
     "android": {
       "package": "croco.space.coronas.info",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": []
     }
   }
