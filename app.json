@@ -1,17 +1,21 @@
 {
   "name": "coronainfo",
-  "displayName": "coronainfo",
+  "displayName": "코로나인포",
   "expo": {
-    "name": "coronainfo",
-    "slug": "coronainfo",
+    "name": "코로나인포",
+    "slug": "corona-info",
     "privacy": "unlisted",
     "sdkVersion": "36.0.0",
     "version": "1.0.0",
     "entryPoint": "node_modules/expo/AppEntry.js",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ]
+    "platforms": ["ios", "android"],
+    "ios": {
+      "bundleIdentifier": "croco.space.coronas.info",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "croco.space.coronas.info",
+      "versionCode": 1
+    }
   }
 }

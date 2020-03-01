@@ -1,22 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 export default function App() {
   return (
     <WebView
-      source={{ uri: 'https://coronas.info' }}
+      source={{ uri: 'https://coronas.info/' }}
       scalesPageToFit={false}
-      style={{ marginTop: 30 }}
+      style={{ marginTop: Platform.OS === 'ios' ? 30 : 0 }}
     />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
