@@ -7,6 +7,7 @@
     "privacy": "unlisted",
     "sdkVersion": "36.0.0",
     "version": "1.0.0",
+    "icon": "./icon.png",
     "entryPoint": "node_modules/expo/AppEntry.js",
     "platforms": ["ios", "android"],
     "ios": {
@@ -15,7 +16,8 @@
     },
     "android": {
       "package": "croco.space.coronas.info",
-      "versionCode": 1
+      "versionCode": 3,
+      "permissions": []
     }
   }
 }
