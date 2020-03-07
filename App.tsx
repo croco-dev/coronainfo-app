@@ -10,13 +10,15 @@ export default function App() {
       const value = await AsyncStorage.getItem('@alam');
       if (value !== null) {
         return setRegister(true);
+      } else {
+        return setRegister(false);
       }
     } catch (e) {
       return setRegister(false);
     }
   }
-  useEffect((): void => {
+  useEffect(() => {
     checkRegister();
   }, []);
-  return register ? <MainWeb /> : <RegisterAlam />;
+  return register ? <MainWeb /> : <RegisterAlam setRegister={setRegister} />;
 }

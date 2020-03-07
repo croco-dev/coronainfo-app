@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SafeAreaView, Platform, StatusBar, Linking, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import styled from '@emotion/native';
+import Notification from './Notification';
 
 const LoadingView = styled.View`
   position: absolute;
@@ -30,6 +31,14 @@ const Home = styled(WebView)`
 `;
 export default function MainWeb({ uri = 'https://coronas.info' }) {
   const [loading, loadingEnd] = useState(true);
+  useEffect(() => {
+    if (!loading) {
+      Notification.register();
+      return () => {
+        Notification.unregister();
+      };
+    }
+  }, [loading]);
   return (
     <SafeAreaView
       style={{
@@ -38,7 +47,7 @@ export default function MainWeb({ uri = 'https://coronas.info' }) {
         alignItems: loading ? 'center' : 'stretch',
       }}
     >
-      <StatusBar translucent backgroundColor={'#fff'} />
+      <StatusBar translucent />
       {loading ? (
         <LoadingView>
           <Loading size='large' />
