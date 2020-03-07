@@ -36,9 +36,9 @@ const _registerLocalNotification = (end: string) => {
     message,
     playSound: false,
 
-    // repeatType: 'week',
-    // date: nextDate,
-    date: new Date(Date.now() + 2000),
+    repeatType: 'week',
+    date: nextDate,
+    // date: new Date(Date.now() + 2000),
   });
 };
 export default {

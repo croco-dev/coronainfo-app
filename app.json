@@ -6,17 +6,17 @@
     "slug": "corona-info",
     "privacy": "unlisted",
     "sdkVersion": "36.0.0",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "icon": "./icon.png",
     "entryPoint": "node_modules/expo/AppEntry.js",
     "platforms": ["ios", "android"],
     "ios": {
       "bundleIdentifier": "croco.space.coronas.info",
-      "buildNumber": "1.0.1"
+      "buildNumber": "1.0.2"
     },
     "android": {
       "package": "croco.space.coronas.info",
-      "versionCode": 4,
+      "versionCode": 5,
       "permissions": []
     }
   }
