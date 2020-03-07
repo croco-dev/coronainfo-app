@@ -1,30 +1,22 @@
-import React from 'react';
-import { WebView } from 'react-native-webview';
-import { SafeAreaView, Platform, StatusBar, Linking } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
+import MainWeb from './components/MainWeb';
+import RegisterAlam from './components/RegisterAlam';
 
 export default function App() {
-  const uri = 'https://coronas.info/';
-  return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-      }}
-    >
-      <StatusBar translucent />
-      <WebView
-        ref={ref => {
-          this.webview = ref;
-        }}
-        source={{ uri }}
-        scalesPageToFit={false}
-        onNavigationStateChange={event => {
-          if (!event.url.includes(uri)) {
-            this.webview.stopLoading();
-            Linking.openURL(event.url);
-          }
-        }}
-      />
-    </SafeAreaView>
-  );
+  const [register, setRegister] = useState(true);
+  async function checkRegister() {
+    try {
+      const value = await AsyncStorage.getItem('@alam');
+      if (value !== null) {
+        return setRegister(true);
+      }
+    } catch (e) {
+      return setRegister(false);
+    }
+  }
+  useEffect((): void => {
+    checkRegister();
+  }, []);
+  return register ? <MainWeb /> : <RegisterAlam />;
 }
